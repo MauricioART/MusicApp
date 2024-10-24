@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerViewController" customModule="Music_App" customModuleProvider="target">
+            <connections>
+                <outlet property="albumArtwork" destination="ea9-c0-FlY" id="xBa-b2-4Rt"/>
+                <outlet property="backButton" destination="Pgx-hf-Ou8" id="wx9-kx-yf8"/>
+                <outlet property="currentTime" destination="c0o-QC-3nn" id="RKj-1A-JBx"/>
+                <outlet property="durationTime" destination="abF-i1-b8F" id="Tu2-nN-puo"/>
+                <outlet property="forwardButton" destination="m0G-dW-nr3" id="IDG-1b-T9l"/>
+                <outlet property="playButton" destination="DU6-M0-bzc" id="9yh-ON-TFb"/>
+                <outlet property="progressBar" destination="tmN-3K-02x" id="gwt-JU-0HO"/>
+                <outlet property="songTitle" destination="6Yq-vw-GV1" id="gfE-7Q-8g4"/>
+                <outlet property="view" destination="iN0-l3-epB" id="J7W-R8-n0u"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxP-67-UxF">
+                    <rect key="frame" x="139.33333333333337" y="79" width="151.66666666666663" height="42"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
+                    <color key="textColor" systemColor="systemBlueColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Yq-vw-GV1" userLabel="El">
+                    <rect key="frame" x="194.33333333333334" y="245.33333333333334" width="41.333333333333343" height="20.333333333333343"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ea9-c0-FlY">
+                    <rect key="frame" x="64.666666666666686" y="315.66666666666669" width="301" height="301.00000000000006"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="ea9-c0-FlY" secondAttribute="height" multiplier="1:1" id="fzd-1i-zdz"/>
+                    </constraints>
+                </imageView>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tmN-3K-02x">
+                    <rect key="frame" x="86" y="666.66666666666663" width="258" height="4"/>
+                </progressView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abF-i1-b8F">
+                    <rect key="frame" x="322.66666666666669" y="690.66666666666663" width="41.333333333333314" height="20.333333333333371"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ghC-3H-00o">
+                    <rect key="frame" x="106.33333333333333" y="731" width="217.66666666666669" height="34.333333333333371"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="backButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgx-hf-Ou8">
+                            <rect key="frame" x="0.0" y="0.0" width="49" height="34.333333333333336"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="tinted" image="backward.end.fill" catalog="system"/>
+                            <connections>
+                                <action selector="action:" destination="-1" eventType="touchUpInside" id="3GB-CE-T2g"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="playButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DU6-M0-bzc">
+                            <rect key="frame" x="69" y="0.0" width="79.666666666666686" height="34.333333333333336"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="tinted" image="play.fill" catalog="system" title="Play "/>
+                            <connections>
+                                <action selector="action:" destination="-1" eventType="touchUpInside" id="MjW-mb-kOV"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="forwardButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0G-dW-nr3">
+                            <rect key="frame" x="168.66666666666669" y="0.0" width="49" height="34.333333333333336"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="tinted" image="forward.end.fill" catalog="system"/>
+                            <connections>
+                                <action selector="action:" destination="-1" eventType="touchUpInside" id="Jbc-pi-MWu"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0o-QC-3nn">
+                    <rect key="frame" x="66" y="690.66666666666663" width="35.666666666666657" height="20.333333333333371"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="ZxP-67-UxF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="0s1-sH-oHD"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="tmN-3K-02x" secondAttribute="trailing" constant="86" id="54b-pR-RXt"/>
+                <constraint firstItem="ghC-3H-00o" firstAttribute="top" secondItem="abF-i1-b8F" secondAttribute="bottom" constant="20" id="5zS-dX-Xo9"/>
+                <constraint firstItem="tmN-3K-02x" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" multiplier="0.6" id="7s1-WZ-tVZ"/>
+                <constraint firstItem="ZxP-67-UxF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Etg-gs-6c5"/>
+                <constraint firstItem="c0o-QC-3nn" firstAttribute="leading" secondItem="tmN-3K-02x" secondAttribute="leading" constant="-20" id="GlN-5t-4Kr"/>
+                <constraint firstItem="tmN-3K-02x" firstAttribute="trailing" secondItem="abF-i1-b8F" secondAttribute="trailing" constant="-20" id="HDk-sN-hXp"/>
+                <constraint firstItem="ea9-c0-FlY" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" multiplier="0.7" priority="200" id="KuR-eU-haM"/>
+                <constraint firstItem="6Yq-vw-GV1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ONK-fR-4h7"/>
+                <constraint firstItem="abF-i1-b8F" firstAttribute="top" secondItem="tmN-3K-02x" secondAttribute="bottom" constant="20" id="QcI-Vr-cUG"/>
+                <constraint firstItem="c0o-QC-3nn" firstAttribute="top" secondItem="tmN-3K-02x" secondAttribute="bottom" constant="20" id="dpt-yE-Zon"/>
+                <constraint firstItem="ea9-c0-FlY" firstAttribute="top" secondItem="6Yq-vw-GV1" secondAttribute="bottom" constant="50" id="gLY-xj-uRF"/>
+                <constraint firstItem="ea9-c0-FlY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="mUj-oM-5gX"/>
+                <constraint firstItem="ea9-c0-FlY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="s67-Hk-c4g"/>
+                <constraint firstItem="tmN-3K-02x" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="t7b-tQ-SOh"/>
+                <constraint firstItem="tmN-3K-02x" firstAttribute="top" secondItem="ea9-c0-FlY" secondAttribute="bottom" constant="50" id="vWp-Cz-gc8"/>
+                <constraint firstItem="ghC-3H-00o" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yX0-Ms-UKI"/>
+            </constraints>
+            <point key="canvasLocation" x="-118.32061068702289" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backward.end.fill" catalog="system" width="128" height="101"/>
+        <image name="forward.end.fill" catalog="system" width="128" height="101"/>
+        <image name="play.fill" catalog="system" width="117" height="128"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
