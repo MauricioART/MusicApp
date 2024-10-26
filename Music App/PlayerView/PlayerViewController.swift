@@ -17,6 +17,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var currentTime: UILabel!
     @IBOutlet weak var durationTime: UILabel!
     @IBOutlet weak var albumArtwork: UIImageView!
+    @IBOutlet weak var slider: UISlider!
     
     var musicList: [SongModel] = []
     var playButtonState: PlayButtonState = .pause
