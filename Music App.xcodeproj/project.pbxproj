@@ -19,6 +19,7 @@
 		5516727F2CC8786E0051FB7B /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516727E2CC8786E0051FB7B /* PlayerViewController.swift */; };
 		551672822CC878870051FB7B /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551672812CC878870051FB7B /* PlayerView.xib */; };
 		551672842CC87D460051FB7B /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551672832CC87D460051FB7B /* SongModel.swift */; };
+		55A29D162CDFDD0D00D3CB6C /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A29D152CDFDD0D00D3CB6C /* AlbumView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		5516727E2CC8786E0051FB7B /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		551672812CC878870051FB7B /* PlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
 		551672832CC87D460051FB7B /* SongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongModel.swift; sourceTree = "<group>"; };
+		55A29D152CDFDD0D00D3CB6C /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				551672502CC878000051FB7B /* SceneDelegate.swift */,
 				551672522CC878000051FB7B /* ViewController.swift */,
 				551672832CC87D460051FB7B /* SongModel.swift */,
+				55A29D152CDFDD0D00D3CB6C /* AlbumView.swift */,
 				551672802CC878730051FB7B /* PlayerView */,
 				551672542CC878000051FB7B /* Main.storyboard */,
 				551672572CC878020051FB7B /* Assets.xcassets */,
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A29D162CDFDD0D00D3CB6C /* AlbumView.swift in Sources */,
 				551672532CC878000051FB7B /* ViewController.swift in Sources */,
 				551672842CC87D460051FB7B /* SongModel.swift in Sources */,
 				5516727F2CC8786E0051FB7B /* PlayerViewController.swift in Sources */,
