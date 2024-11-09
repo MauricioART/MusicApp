@@ -21,7 +21,7 @@ class PlayerViewController: UIViewController {
     
     var musicList: [SongModel] = []
     var playButtonState: PlayButtonState = .pause
-    var currentSongIndex: Int = 1
+    var currentSongIndex: Int = 0
     var timer: Timer?
     var currentTimeValue: TimeInterval = 0
     var isPlaying = false
@@ -109,6 +109,8 @@ class PlayerViewController: UIViewController {
                 let minutes = Int(self.currentTimeValue) / 60
                 let seconds = Int(self.currentTimeValue) % 60
                 self.currentTime.text = String(format: "%d:%02d", minutes, seconds)
+                let timeLeft = self.musicList[currentSongIndex].duration - Int(self.currentTimeValue)
+                self.durationTime.text = String(format: "%d:%02d", timeLeft / 60, timeLeft % 60)
                 
                 // Detener el temporizador cuando simula el fin de la canción
                 if self.currentTimeValue >= duration {
