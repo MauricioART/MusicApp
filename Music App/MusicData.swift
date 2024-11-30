@@ -132,28 +132,34 @@ struct Album{
 }
 
 struct MusicDB {
-    var bandIndexCounter = 0
     var bands: [String]
-    var albums: [String:[(name:String,id: Int)]]
-    var songs: [Int:[String]]
+    var albums: [String:[String:[String]]]
     
-    mutating func addSong(album: String, name: String) -> Bool{
-        
+    func getAlbumsName(band: String) -> [String]?{
+        if bands.contains(band){
+            var albumNames = []
+            for album in albums[band]{
+                
+            }
+        }else{
+            return nil
+        }
     }
     
-    mutating func addAlbum(band: String, albumName: String) -> Bool {
+    
+    mutating func addAlbum(band: String, albumName: String, playList: [String]) -> Bool {
         if bands.contains(band){
-            albums[band]?.append((albumName,bandIndexCounter))
-            bandIndexCounter = bandIndexCounter + 1
+            albums[band]? = [albumName:playList]
             return true
         }else{
             return false
         }
     }
     
+    
     mutating func addBand(name: String){
         bands.append(name)
-        albums[name] = []
+        albums[name] = [:]
     }
 }
 var musicData = Music(data: music)
