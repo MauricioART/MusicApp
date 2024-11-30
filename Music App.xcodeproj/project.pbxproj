@@ -19,7 +19,11 @@
 		5516727F2CC8786E0051FB7B /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516727E2CC8786E0051FB7B /* PlayerViewController.swift */; };
 		551672822CC878870051FB7B /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551672812CC878870051FB7B /* PlayerView.xib */; };
 		551672842CC87D460051FB7B /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551672832CC87D460051FB7B /* SongModel.swift */; };
-		55A29D162CDFDD0D00D3CB6C /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A29D152CDFDD0D00D3CB6C /* AlbumView.swift */; };
+		554750A92CF24D14004ACA62 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554750A72CF24D14004ACA62 /* AlbumsViewController.swift */; };
+		554750AA2CF24D14004ACA62 /* AlbumsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554750A82CF24D14004ACA62 /* AlbumsViewController.xib */; };
+		554750AD2CF24EA5004ACA62 /* MusicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554750AC2CF24EA5004ACA62 /* MusicData.swift */; };
+		554750B02CF267DE004ACA62 /* SongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554750AE2CF267DE004ACA62 /* SongsViewController.swift */; };
+		554750B12CF267DE004ACA62 /* SongsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554750AF2CF267DE004ACA62 /* SongsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +60,11 @@
 		5516727E2CC8786E0051FB7B /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		551672812CC878870051FB7B /* PlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
 		551672832CC87D460051FB7B /* SongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongModel.swift; sourceTree = "<group>"; };
-		55A29D152CDFDD0D00D3CB6C /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
+		554750A72CF24D14004ACA62 /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
+		554750A82CF24D14004ACA62 /* AlbumsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumsViewController.xib; sourceTree = "<group>"; };
+		554750AC2CF24EA5004ACA62 /* MusicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicData.swift; sourceTree = "<group>"; };
+		554750AE2CF267DE004ACA62 /* SongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsViewController.swift; sourceTree = "<group>"; };
+		554750AF2CF267DE004ACA62 /* SongsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +116,12 @@
 			isa = PBXGroup;
 			children = (
 				5516724E2CC878000051FB7B /* AppDelegate.swift */,
+				554750AC2CF24EA5004ACA62 /* MusicData.swift */,
 				551672502CC878000051FB7B /* SceneDelegate.swift */,
 				551672522CC878000051FB7B /* ViewController.swift */,
+				554750B22CF267E6004ACA62 /* SongsView */,
+				554750AB2CF24D3E004ACA62 /* AAlbumsView */,
 				551672832CC87D460051FB7B /* SongModel.swift */,
-				55A29D152CDFDD0D00D3CB6C /* AlbumView.swift */,
 				551672802CC878730051FB7B /* PlayerView */,
 				551672542CC878000051FB7B /* Main.storyboard */,
 				551672572CC878020051FB7B /* Assets.xcassets */,
@@ -145,6 +155,24 @@
 				551672812CC878870051FB7B /* PlayerView.xib */,
 			);
 			path = PlayerView;
+			sourceTree = "<group>";
+		};
+		554750AB2CF24D3E004ACA62 /* AAlbumsView */ = {
+			isa = PBXGroup;
+			children = (
+				554750A72CF24D14004ACA62 /* AlbumsViewController.swift */,
+				554750A82CF24D14004ACA62 /* AlbumsViewController.xib */,
+			);
+			path = AAlbumsView;
+			sourceTree = "<group>";
+		};
+		554750B22CF267E6004ACA62 /* SongsView */ = {
+			isa = PBXGroup;
+			children = (
+				554750AE2CF267DE004ACA62 /* SongsViewController.swift */,
+				554750AF2CF267DE004ACA62 /* SongsViewController.xib */,
+			);
+			path = SongsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,7 +282,9 @@
 				5516725B2CC878020051FB7B /* LaunchScreen.storyboard in Resources */,
 				551672582CC878020051FB7B /* Assets.xcassets in Resources */,
 				551672562CC878000051FB7B /* Main.storyboard in Resources */,
+				554750B12CF267DE004ACA62 /* SongsViewController.xib in Resources */,
 				551672822CC878870051FB7B /* PlayerView.xib in Resources */,
+				554750AA2CF24D14004ACA62 /* AlbumsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,11 +309,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55A29D162CDFDD0D00D3CB6C /* AlbumView.swift in Sources */,
 				551672532CC878000051FB7B /* ViewController.swift in Sources */,
 				551672842CC87D460051FB7B /* SongModel.swift in Sources */,
+				554750A92CF24D14004ACA62 /* AlbumsViewController.swift in Sources */,
 				5516727F2CC8786E0051FB7B /* PlayerViewController.swift in Sources */,
 				5516724F2CC878000051FB7B /* AppDelegate.swift in Sources */,
+				554750B02CF267DE004ACA62 /* SongsViewController.swift in Sources */,
+				554750AD2CF24EA5004ACA62 /* MusicData.swift in Sources */,
 				551672512CC878000051FB7B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
