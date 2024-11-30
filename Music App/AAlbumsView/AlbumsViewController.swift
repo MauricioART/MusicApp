@@ -13,11 +13,12 @@ class AlbumsViewController: UIViewController {
     @IBOutlet weak var bandLabel : UILabel!
     var dataSource: UITableViewDiffableDataSource<Int,String>?
     
-    var albumsData: [String: Any] = [:]
+    var albumsData: [String] = []
+    var bandName: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        bandLabel.text = albumsData["nombre"] as? String
+        bandLabel.text = bandName
         setDataSource()
         setSnapshot()
         tableView.delegate = self

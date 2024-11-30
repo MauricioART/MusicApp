@@ -96,70 +96,106 @@ var music: [[String: Any]] = [
     ]
 ]
 
-struct Music {
-    var bands: [Band] = []
-    init(data: [[String: Any]]) {
-        for band in data {
-            if let nombreBanda = band["nombre"] as? String, let albums = band["álbumes"] as? [[String: Any]] {
-                bands.append(Band(name: nombreBanda, albums: albums))
-            }
-        }
-    }
-    
 
-}
-
-struct Band{
-    var name: String
-    var albums: [Album] = []
-    init(name: String, albums: [[String: Any]]) {
-        self.name = name
-        for album in albums {
-            if let nombreAlbum = album["nombre"] as? String, let canciones = album["canciones"] as? [String] {
-                self.albums.append(Album(title: nombreAlbum, songs: canciones))
-            }
-        }
-    }
-}
-
-struct Album{
-    var title: String
-    var songs: [String]
-    init(title: String, songs: [String]) {
-        self.title = title
-        self.songs = songs
-    }
-}
 
 struct MusicDB {
-    var bands: [String]
-    var albums: [String:[String:[String]]]
+    var bands: [String] = []
+    var albums: [String:[[String:[String]]]] = [:]
     
     func getAlbumsName(band: String) -> [String]?{
         if bands.contains(band){
-            var albumNames = []
-            for album in albums[band]{
-                
+            var albumNames : [String] = []
+            for album in albums[band]!{
+//                albumNames.append(album.)
+                print(album)
             }
+            return albumNames
         }else{
             return nil
         }
     }
     
+    func getSongs(fromBand band: String, fromAlbum albumName: String) -> [String]?{
+        if let albums = albums[band]{
+            for album in albums{
+                if (album[albumName] != nil){
+                    return album[albumName]
+                }
+            }
+            return nil
+        }
+        else {
+            return nil
+        }
+    }
+    
+    func getBands() -> [String] {
+        return bands
+    }
     
     mutating func addAlbum(band: String, albumName: String, playList: [String]) -> Bool {
         if bands.contains(band){
-            albums[band]? = [albumName:playList]
+            albums[band]?.append([albumName:playList])
             return true
         }else{
             return false
         }
     }
     
-    
     mutating func addBand(name: String){
         bands.append(name)
-        albums[name] = [:]
+        albums[name] = [[:]]
+    }
+    
+    init( data: [[String: Any]]) {
+        for band in data {
+            if let nombreBanda = band["nombre"] as? String, let albums = band["álbumes"] as? [[String: Any]] {
+                bands.append(nombreBanda)
+                for album in albums {
+                    if let nombreAlbum = album["nombre"] as? String, let canciones = album["canciones"] as? [String] {
+                        var albumBuffer: [String:[String]] = [:]
+                        albumBuffer[nombreAlbum] = canciones
+                        self.albums[nombreBanda]?.append(albumBuffer)
+                    }
+                }
+            }
+        }
     }
 }
-var musicData = Music(data: music)
+var musicData = MusicDB(data: music)
+
+
+
+
+//struct Music {
+//    var bands: [Band] = []
+//    init(data: [[String: Any]]) {
+//        for band in data {
+//            if let nombreBanda = band["nombre"] as? String, let albums = band["álbumes"] as? [[String: Any]] {
+//                bands.append(Band(name: nombreBanda, albums: albums))
+//            }
+//        }
+//    }
+//}
+//
+//struct Band{
+//    var name: String
+//    var albums: [Album] = []
+//    init(name: String, albums: [[String: Any]]) {
+//        self.name = name
+//        for album in albums {
+//            if let nombreAlbum = album["nombre"] as? String, let canciones = album["canciones"] as? [String] {
+//                self.albums.append(Album(title: nombreAlbum, songs: canciones))
+//            }
+//        }
+//    }
+//}
+//
+//struct Album{
+//    var title: String
+//    var songs: [String]
+//    init(title: String, songs: [String]) {
+//        self.title = title
+//        self.songs = songs
+//    }
+//}

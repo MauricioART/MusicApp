@@ -31,11 +31,7 @@ class ViewController: UIViewController {
     func setSnapshot(){
         var snapshot = NSDiffableDataSourceSnapshot<Int,String>()
         snapshot.appendSections([0])
-        var bands : [String] = []
-        for band in musicData{
-            bands.append((band["nombre"] as? String)!)
-        }
-        snapshot.appendItems(musicData)
+        snapshot.appendItems(musicData.getBands())
         dataSource?.apply(snapshot)
     }
 }
@@ -44,8 +40,10 @@ class ViewController: UIViewController {
 extension ViewController : UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let albumsViewController = AlbumsViewController(nibName: nil, bundle: nil)
-        albumsViewController.albumsData = musicData[indexPath.row]
+       //[] albumsViewController.albumsData = musicData[indexPath.item]
+        albumsViewController.albumsData = musicData.getAlbumsName(band: musicData.bands[indexPath.row]) ?? []
         //self.navigationController?.pushViewController(albumsViewController, animated: true)
+        albumsViewController.bandName = musicData.bands[indexPath.row]
         albumsViewController.modalPresentationStyle = .fullScreen
         present(albumsViewController, animated: true, completion: nil)
     }
