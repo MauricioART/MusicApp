@@ -105,10 +105,16 @@ struct MusicDB {
     func getAlbumsName(band: String) -> [String]?{
         if bands.contains(band){
             var albumNames : [String] = []
-            for album in albums[band]!{
-//                albumNames.append(album.)
-                print(album)
-            }
+            
+            albums[band].map({
+                print($0)
+            })
+//            for album in albums[band].{
+//                for name in album.keys{
+//                    albumNames.append(name)
+//                }
+//            }
+            print(albumNames)
             return albumNames
         }else{
             return nil
@@ -151,6 +157,8 @@ struct MusicDB {
         for band in data {
             if let nombreBanda = band["nombre"] as? String, let albums = band["álbumes"] as? [[String: Any]] {
                 bands.append(nombreBanda)
+                self.albums[nombreBanda] = []
+
                 for album in albums {
                     if let nombreAlbum = album["nombre"] as? String, let canciones = album["canciones"] as? [String] {
                         var albumBuffer: [String:[String]] = [:]
@@ -160,6 +168,7 @@ struct MusicDB {
                 }
             }
         }
+        
     }
 }
 var musicData = MusicDB(data: music)
