@@ -5,206 +5,136 @@
 //  Created by Diplomado on 23/11/24.
 //
 
-import Foundation
-
-// Definir las bandas y sus álbumes con canciones
-var music: [[String: Any]] = [
-    [
-        "nombre": "Maroon 5",
-        "álbumes": [
-            [
-                "nombre": "Songs About Jane",
-                "canciones": ["This Love", "She Will Be Loved", "Harder to Breathe"]
-            ],
-            [
-                "nombre": "Overexposed",
-                "canciones": ["Payphone", "One More Night", "Moves Like Jagger"]
-            ],
-            [
-                "nombre": "V",
-                "canciones": ["Sugar", "Maps", "Animals"]
-            ]
-        ]
-    ],
-    [
-        "nombre": "Coldplay",
-        "álbumes": [
-            [
-                "nombre": "Parachutes",
-                "canciones": ["Yellow", "Shiver", "Trouble"]
-            ],
-            [
-                "nombre": "A Rush of Blood to the Head",
-                "canciones": ["Clocks", "The Scientist", "In My Place"]
-            ],
-            [
-                "nombre": "Ghost Stories",
-                "canciones": ["Magic", "A Sky Full of Stars", "Ink"]
-            ]
-        ]
-    ],
-    [
-        "nombre": "The Strokes",
-        "álbumes": [
-            [
-                "nombre": "Is This It",
-                "canciones": ["Last Nite", "Hard to Explain", "Someday"]
-            ],
-            [
-                "nombre": "Room on Fire",
-                "canciones": ["Reptilia", "12:51", "Under Control"]
-            ],
-            [
-                "nombre": "First Impressions of Earth",
-                "canciones": ["Juicebox", "Heart in a Cage", "Machu Picchu"]
-            ]
-        ]
-    ],
-    [
-        "nombre": "Muse",
-        "álbumes": [
-            [
-                "nombre": "Absolution",
-                "canciones": ["Time Is on My Side", "Hysteria", "Stockholm Syndrome"]
-            ],
-            [
-                "nombre": "Black Holes and Revelations",
-                "canciones": ["Supermassive Black Hole", "Knights of Cydonia", "Starlight"]
-            ],
-            [
-                "nombre": "The Resistance",
-                "canciones": ["Uprising", "Undisclosed Desires", "Resistance"]
-            ]
-        ]
-    ],
-    [
-        "nombre": "The Killers",
-        "álbumes": [
-            [
-                "nombre": "Hot Fuss",
-                "canciones": ["Mr. Brightside", "Somebody Told Me", "Smile Like You Mean It"]
-            ],
-            [
-                "nombre": "Sam's Town",
-                "canciones": ["When You Were Young", "Bones", "Read My Mind"]
-            ],
-            [
-                "nombre": "Day & Age",
-                "canciones": ["Human", "Spaceman", "A Dustland Fairytale"]
-            ]
-        ]
-    ]
-]
+import UIKit
 
 
+struct Song{
+    var name: String
+    var duration: Int
+}
+
+struct Album{
+    var coverImage: UIImage
+    var name: String
+    var songs: [Song]
+    
+}
+
+struct Band{
+    var name: String
+    var albums: [Album]
+    
+    init(name: String, albums: [Album]) {
+        self.name = name
+        self.albums = albums
+    }
+    
+    init(name: String){
+        self.name = name
+        self.albums = []
+    }
+}
 
 struct MusicDB {
-    var bands: [String] = []
-    var albums: [String:[[String:[String]]]] = [:]
+    var bands : [Band] = []
     
-    func getAlbumsName(band: String) -> [String]?{
-        if bands.contains(band){
-            var albumNames : [String] = []
-            
-            albums[band].map({
-                print($0)
-            })
-//            for album in albums[band].{
-//                for name in album.keys{
-//                    albumNames.append(name)
-//                }
-//            }
-            print(albumNames)
-            return albumNames
+    func getAlbums(bandName: String)->[Album]{
+        if let band = self.bands.first(where: { $0.name == bandName}){
+            return band.albums
         }else{
-            return nil
+            return []
         }
     }
     
-    func getSongs(fromBand band: String, fromAlbum albumName: String) -> [String]?{
-        if let albums = albums[band]{
-            for album in albums{
-                if (album[albumName] != nil){
-                    return album[albumName]
-                }
-            }
-            return nil
+    func getBandNames()->[String]{
+        return self.bands.map({$0.name})
+    }
+    
+    mutating func addBand(bandName: String) -> Bool{
+        if self.bands.contains(where: {$0.name == bandName}){
+            return false
+        }
+        else{
+            self.bands.append(Band(name: bandName))
+            return true
+        }
+    }
+    
+    mutating func addAlbum(bandName: String, albumName: String, songsList: [Song])->Bool{
+        if var band = self.bands.first(where: {$0.name == bandName}){
+            var newAlbum: Album = Album(coverImage: UIImage.cover2, name: albumName, songs: songsList)
+            band.albums.append(newAlbum)
+            return true
         }
         else {
-            return nil
-        }
-    }
-    
-    func getBands() -> [String] {
-        return bands
-    }
-    
-    mutating func addAlbum(band: String, albumName: String, playList: [String]) -> Bool {
-        if bands.contains(band){
-            albums[band]?.append([albumName:playList])
-            return true
-        }else{
             return false
         }
     }
     
-    mutating func addBand(name: String){
-        bands.append(name)
-        albums[name] = [[:]]
+// Método para cargar los datos de música de ejemplo
+    mutating func loadSampleMusicData() {
+        // Crear canciones
+        let maroon5Songs1 = [
+            Song(name: "This Love", duration: 206),
+            Song(name: "She Will Be Loved", duration: 258),
+            Song(name: "Harder to Breathe", duration: 173)
+        ]
+        
+        let maroon5Songs2 = [
+            Song(name: "Payphone", duration: 231),
+            Song(name: "One More Night", duration: 220),
+            Song(name: "Moves Like Jagger", duration: 201)
+        ]
+        
+        let maroon5Songs3 = [
+            Song(name: "Sugar", duration: 235),
+            Song(name: "Maps", duration: 194),
+            Song(name: "Animals", duration: 230)
+        ]
+        
+        // Crear álbumes
+        let maroon5Albums = [
+            Album(coverImage: UIImage(named: "songs_about_jane_cover") ?? UIImage(), name: "Songs About Jane", songs: maroon5Songs1),
+            Album(coverImage: UIImage(named: "overexposed_cover") ?? UIImage(), name: "Overexposed", songs: maroon5Songs2),
+            Album(coverImage: UIImage(named: "v_cover") ?? UIImage(), name: "V", songs: maroon5Songs3)
+        ]
+        
+        let coldplaySongs1 = [
+            Song(name: "Yellow", duration: 269),
+            Song(name: "Shiver", duration: 299),
+            Song(name: "Trouble", duration: 269)
+        ]
+        
+        let coldplaySongs2 = [
+            Song(name: "Clocks", duration: 307),
+            Song(name: "The Scientist", duration: 309),
+            Song(name: "In My Place", duration: 229)
+        ]
+        
+        let coldplaySongs3 = [
+            Song(name: "Magic", duration: 285),
+            Song(name: "A Sky Full of Stars", duration: 268),
+            Song(name: "Ink", duration: 227)
+        ]
+        
+        // Crear álbumes
+        let coldplayAlbums = [
+            Album(coverImage: UIImage(named: "parachutes_cover") ?? UIImage(), name: "Parachutes", songs: coldplaySongs1),
+            Album(coverImage: UIImage(named: "rush_of_blood_cover") ?? UIImage(), name: "A Rush of Blood to the Head", songs: coldplaySongs2),
+            Album(coverImage: UIImage(named: "ghost_stories_cover") ?? UIImage(), name: "Ghost Stories", songs: coldplaySongs3)
+        ]
+        
+        // Crear bandas y agregar álbumes
+        let maroon5 = Band(name: "Maroon 5", albums: maroon5Albums)
+        let coldplay = Band(name: "Coldplay", albums: coldplayAlbums)
+        
+        // Agregar las bandas a la base de datos
+        self.bands = [maroon5, coldplay]
     }
     
-    init( data: [[String: Any]]) {
-        for band in data {
-            if let nombreBanda = band["nombre"] as? String, let albums = band["álbumes"] as? [[String: Any]] {
-                bands.append(nombreBanda)
-                self.albums[nombreBanda] = []
-
-                for album in albums {
-                    if let nombreAlbum = album["nombre"] as? String, let canciones = album["canciones"] as? [String] {
-                        var albumBuffer: [String:[String]] = [:]
-                        albumBuffer[nombreAlbum] = canciones
-                        self.albums[nombreBanda]?.append(albumBuffer)
-                    }
-                }
-            }
-        }
-        
-    }
 }
-var musicData = MusicDB(data: music)
 
 
+var musicData = MusicDB()
 
 
-//struct Music {
-//    var bands: [Band] = []
-//    init(data: [[String: Any]]) {
-//        for band in data {
-//            if let nombreBanda = band["nombre"] as? String, let albums = band["álbumes"] as? [[String: Any]] {
-//                bands.append(Band(name: nombreBanda, albums: albums))
-//            }
-//        }
-//    }
-//}
-//
-//struct Band{
-//    var name: String
-//    var albums: [Album] = []
-//    init(name: String, albums: [[String: Any]]) {
-//        self.name = name
-//        for album in albums {
-//            if let nombreAlbum = album["nombre"] as? String, let canciones = album["canciones"] as? [String] {
-//                self.albums.append(Album(title: nombreAlbum, songs: canciones))
-//            }
-//        }
-//    }
-//}
-//
-//struct Album{
-//    var title: String
-//    var songs: [String]
-//    init(title: String, songs: [String]) {
-//        self.title = title
-//        self.songs = songs
-//    }
-//}

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55017BDC2CFFC880009EA93B /* SongTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55017BDB2CFFC880009EA93B /* SongTableViewCell.xib */; };
+		55017BDD2CFFC880009EA93B /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55017BDA2CFFC880009EA93B /* SongTableViewCell.swift */; };
 		5516724F2CC878000051FB7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516724E2CC878000051FB7B /* AppDelegate.swift */; };
 		551672512CC878000051FB7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551672502CC878000051FB7B /* SceneDelegate.swift */; };
 		551672532CC878000051FB7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551672522CC878000051FB7B /* ViewController.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55017BDA2CFFC880009EA93B /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		55017BDB2CFFC880009EA93B /* SongTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongTableViewCell.xib; sourceTree = "<group>"; };
 		5516724B2CC878000051FB7B /* Music App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5516724E2CC878000051FB7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		551672502CC878000051FB7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,7 +124,7 @@
 				551672502CC878000051FB7B /* SceneDelegate.swift */,
 				551672522CC878000051FB7B /* ViewController.swift */,
 				554750B22CF267E6004ACA62 /* SongsView */,
-				554750AB2CF24D3E004ACA62 /* AAlbumsView */,
+				554750AB2CF24D3E004ACA62 /* AlbumsView */,
 				551672832CC87D460051FB7B /* SongModel.swift */,
 				551672802CC878730051FB7B /* PlayerView */,
 				551672542CC878000051FB7B /* Main.storyboard */,
@@ -157,19 +161,21 @@
 			path = PlayerView;
 			sourceTree = "<group>";
 		};
-		554750AB2CF24D3E004ACA62 /* AAlbumsView */ = {
+		554750AB2CF24D3E004ACA62 /* AlbumsView */ = {
 			isa = PBXGroup;
 			children = (
 				554750A72CF24D14004ACA62 /* AlbumsViewController.swift */,
 				554750A82CF24D14004ACA62 /* AlbumsViewController.xib */,
 			);
-			path = AAlbumsView;
+			path = AlbumsView;
 			sourceTree = "<group>";
 		};
 		554750B22CF267E6004ACA62 /* SongsView */ = {
 			isa = PBXGroup;
 			children = (
 				554750AE2CF267DE004ACA62 /* SongsViewController.swift */,
+				55017BDA2CFFC880009EA93B /* SongTableViewCell.swift */,
+				55017BDB2CFFC880009EA93B /* SongTableViewCell.xib */,
 				554750AF2CF267DE004ACA62 /* SongsViewController.xib */,
 			);
 			path = SongsView;
@@ -282,6 +288,7 @@
 				5516725B2CC878020051FB7B /* LaunchScreen.storyboard in Resources */,
 				551672582CC878020051FB7B /* Assets.xcassets in Resources */,
 				551672562CC878000051FB7B /* Main.storyboard in Resources */,
+				55017BDC2CFFC880009EA93B /* SongTableViewCell.xib in Resources */,
 				554750B12CF267DE004ACA62 /* SongsViewController.xib in Resources */,
 				551672822CC878870051FB7B /* PlayerView.xib in Resources */,
 				554750AA2CF24D14004ACA62 /* AlbumsViewController.xib in Resources */,
@@ -315,6 +322,7 @@
 				5516727F2CC8786E0051FB7B /* PlayerViewController.swift in Sources */,
 				5516724F2CC878000051FB7B /* AppDelegate.swift in Sources */,
 				554750B02CF267DE004ACA62 /* SongsViewController.swift in Sources */,
+				55017BDD2CFFC880009EA93B /* SongTableViewCell.swift in Sources */,
 				554750AD2CF24EA5004ACA62 /* MusicData.swift in Sources */,
 				551672512CC878000051FB7B /* SceneDelegate.swift in Sources */,
 			);

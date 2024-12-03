@@ -12,8 +12,10 @@ class ViewController: UIViewController {
     var dataSource: UITableViewDiffableDataSource<Int,String>?
     @IBOutlet weak var tableView : UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        musicData.loadSampleMusicData()
         setDataSource()
         setSnapshot()
         tableView.delegate = self
@@ -31,7 +33,7 @@ class ViewController: UIViewController {
     func setSnapshot(){
         var snapshot = NSDiffableDataSourceSnapshot<Int,String>()
         snapshot.appendSections([0])
-        snapshot.appendItems(musicData.getBands())
+        snapshot.appendItems(musicData.bands.map({$0.name}))
         dataSource?.apply(snapshot)
     }
 }
@@ -40,10 +42,7 @@ class ViewController: UIViewController {
 extension ViewController : UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let albumsViewController = AlbumsViewController(nibName: nil, bundle: nil)
-       //[] albumsViewController.albumsData = musicData[indexPath.item]
-        albumsViewController.albumsData = musicData.getAlbumsName(band: musicData.bands[indexPath.row]) ?? []
-        //self.navigationController?.pushViewController(albumsViewController, animated: true)
-        albumsViewController.bandName = musicData.bands[indexPath.row]
+        albumsViewController.band = musicData.bands[indexPath.row]
         albumsViewController.modalPresentationStyle = .fullScreen
         present(albumsViewController, animated: true, completion: nil)
     }
